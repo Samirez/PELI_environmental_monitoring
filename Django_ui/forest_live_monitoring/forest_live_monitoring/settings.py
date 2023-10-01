@@ -76,10 +76,15 @@ WSGI_APPLICATION = 'forest_live_monitoring.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Replace with your PostgreSQL database name
+        'USER': 'postgres',  # Replace with your PostgreSQL username
+        'PASSWORD': 'OpadvæggenHang',  # Replace with your PostgreSQL password
+        'HOST': 'localhost',  # Replace with your PostgreSQL host if it's not on your local machine
+        'PORT': '5432',  # Leave empty for the default PostgreSQL port (5432)
     }
 }
+
 
 
 # Password validation
