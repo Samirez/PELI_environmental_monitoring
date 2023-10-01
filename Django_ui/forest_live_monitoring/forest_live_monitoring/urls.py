@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import humidity.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', humidity.views.home_view, name='home'),
 ]
