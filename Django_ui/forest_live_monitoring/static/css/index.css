@@ -1,0 +1,130 @@
+body {
+    background-color: #D9D9D9;
+    overflow: hidden;
+}    
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 3px;
+    overflow: hidden;
+    background-color: #98DC6E;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: auto;
+  }
+  
+  li a:hover {
+    background-color: beige;
+  }
+
+    .active {
+        width: 35%;
+        margin-left: 330px;
+    }
+    .header {
+        color: white;
+        padding: 15px;
+        text-align: center;
+        margin: auto;
+    }
+    .container {
+        height: 450px;
+        width: 600px;
+        background: #427232;
+        border: 1px #2633AA solid;
+        backdrop-filter: blur(4px);
+        margin: auto;
+        margin-top: inherit
+    }
+    .device-container1 {
+        background-color: #9ED7A7;
+        width: 40%;
+        height: 40%;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .device-container2 {
+        background-color: #9ED7A7;
+        width: 40%;
+        height: 40%;
+        margin-left: 55%;
+        margin-top: -33.1%;
+    }
+    .device-container3 {
+        background-color: #9ED7A7;
+        width: 40%;
+        height: 40%;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .device-container4 {
+        background-color: #9ED7A7;
+        width: 40%;
+        height: 40%;
+        margin-left: 55%;
+        margin-top: -33.1%;
+    }
+    .device-1 {
+        margin-left: 15%;
+        padding-top: 5px;   
+    }
+    .humidity-1 {
+        margin-left: 15%;
+    }
+    .temperature-1 {
+        margin-left: 15%;
+    }
+    .location-1 {
+        margin-left: 15%;
+    }
+
+    .device-2 {
+        margin-left: 15%;  
+        padding-top: 5px; 
+    }
+    .humidity-2 {
+        margin-left: 15%;
+    }
+    .temperature-2 {
+        margin-left: 15%;
+    }
+    .location-2 {
+        margin-left: 15%;
+    }
+
+    .device-3 {
+        margin-left: 15%;
+        padding-top: 5px;   
+    }
+    .humidity-3 {
+        margin-left: 15%;
+    }
+    .temperature-3 {
+        margin-left: 15%;
+    }
+    .location-3 {
+        margin-left: 15%;
+    }
+
+    .device-4 {
+        margin-left: 15%;
+        padding-top: 5px;   
+    }
+    .humidity-4 {
+        margin-left: 15%;
+    }
+    .temperature-4 {
+        margin-left: 15%;
+    }
+    .location-4 {
+        margin-left: 15%;
+    }
