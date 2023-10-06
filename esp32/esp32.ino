@@ -44,15 +44,15 @@ void receivedCallback( uint32_t from, String &msg ) {
 }
 
 void newConnectionCallback(uint32_t nodeId) {
-    Serial.printf("--> New Connection, nodeId = %u\n", nodeId);
+    Serial.printf("log:New Connection, nodeId = %u\n", nodeId);
 }
 
 void changedConnectionCallback() {
-  Serial.printf("Changed connections\n");
+  Serial.printf("log:Changed connections\n");
 }
 
 void nodeTimeAdjustedCallback(int32_t offset) {
-    Serial.printf("Adjusted time %u. Offset = %d\n", mesh.getNodeTime(),offset);
+    Serial.printf("log:Adjusted time %u. Offset = %d\n", mesh.getNodeTime(),offset);
 }
 
 void setup() {
@@ -60,7 +60,7 @@ void setup() {
   Wire.begin(2, 3);
 
   if (humiditySensor.begin() == false) {
-    Serial.println("AHT20 not detected. Please check wiring. Freezing.");
+    Serial.println("log:AHT20 not detected. Please check wiring. Freezing.");
     while (1);
   }
 
@@ -73,7 +73,7 @@ void setup() {
   mesh.onChangedConnections(&changedConnectionCallback);
   mesh.onNodeTimeAdjusted(&nodeTimeAdjustedCallback);
 
-  Serial.print("Node id: ");
+  Serial.print("log:Node id: ");
   Serial.println(mesh.getNodeId());
 
   userScheduler.addTask( taskSendMessage );
@@ -88,3 +88,4 @@ void loop()
 
 // white cable: 3859401677
 // black cable: 3859403313
+// red black cable: 3859403769
