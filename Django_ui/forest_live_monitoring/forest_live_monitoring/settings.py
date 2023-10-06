@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'forest_live_monitoring.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',  # Replace with your PostgreSQL database name
@@ -82,6 +82,13 @@ DATABASES = {
         'PASSWORD': 'OpadvæggenHang',  # Replace with your PostgreSQL password
         'HOST': 'localhost',  # Replace with your PostgreSQL host if it's not on your local machine
         'PORT': '5432',  # Leave empty for the default PostgreSQL port (5432)
+    }
+}'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db', # This is where you put the name of the db file. 
+                 # If one doesn't exist, it will be created at migration time.
     }
 }
 
