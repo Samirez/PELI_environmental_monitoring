@@ -1,6 +1,14 @@
-CREATE TABLE sensor_readings {
-node_id INT PRIMARY KEY,
-temperature NUMERIC(10) not NULL,
-humidity NUMERIC(10) not NULL,
-time_stamp datetime
-};
+CREATE TABLE IF NOT EXISTS sensors (
+    Node_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Latitude NUMERIC(8, 6),
+    Longitude NUMERIC(9, 6)
+);
+
+CREATE TABLE IF NOT EXISTS sensorReadings (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    node_id INT,
+    Temperature TEXT NOT NULL,
+    Humidity TEXT NOT NULL,
+    Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (node_id) REFERENCES sensors(Node_id)
+);
