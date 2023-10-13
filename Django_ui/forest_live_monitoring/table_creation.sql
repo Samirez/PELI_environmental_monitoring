@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS sensors (
 CREATE TABLE IF NOT EXISTS sensorReadings (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     node_id INT,
-    Temperature TEXT NOT NULL,
-    Humidity TEXT NOT NULL,
+    Temperature float NOT NULL,
+    Humidity float NOT NULL,
     Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (node_id) REFERENCES sensors(Node_id)
 );
