@@ -18,5 +18,6 @@ while True:
     node_id, temperature, humidity = line.split(",")
     client.publish(f"/node/{node_id}/temperature", temperature)
     client.publish(f"/node/{node_id}/humidity", humidity)
+    client.publish(f"/node/{node_id}/temperature-humidity", f"{temperature},{humidity}")
   
 client.disconnect()
