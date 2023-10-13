@@ -17,8 +17,8 @@
     <div class="container">
         <div class="device-container1">
         <h3 class="device-1">Device name: <span id="device1"></span></h3>
-        <p class="humidity-1">Humidity: <span id="humidity1"></span></p>
-        <p class="temperature-1">Temperature: <span id="temperature1"></span></p>
+        <p class="humidity-1">Humidity: {{ latest_reading.Humidity }}</p>
+        <p class="temperature-1">Temperature: {{ latest_reading.Temperature }}</p>
         <p class="location-1">Location: <span id="location1"></span></p>
         </div>
         
