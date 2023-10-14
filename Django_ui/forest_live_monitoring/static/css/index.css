@@ -11,15 +11,16 @@ ul {
   }
   
   li {
-    float: left;
+    display: inline-block;
   }
   
   li a {
-    display: block;
+    display: flex;
     color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: auto;
+    justify-content: center;
   }
   
   li a:hover {
