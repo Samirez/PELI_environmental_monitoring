@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO) #error logging
 ####
 options=dict()
 ##EDIT HERE ###############
-brokers=["192.168.1.51","192.168.1.186","192.168.1.206","192.168.1.108",\
+brokers=["192.168.1.108", "192.168.1.51","192.168.1.186","192.168.1.206",\
          "test.mosquitto.org","broker.hivemq.com","iot.eclipse.org"]
 options["broker"]=brokers[0]
 options["port"]=1883
@@ -157,8 +157,8 @@ def log_worker():
     """runs in own thread to log data"""
     #create logger
     logger=SQL_data_logger(db_file)
-    logger.drop_table("logs")
-    logger.create_table("logs",table_fields)
+    logger.drop_table("sensorReadings")
+    logger.create_table("sensorReadings",table_fields)
     while Log_worker_flag:
         time.sleep(0.01)
         while not q.empty():
