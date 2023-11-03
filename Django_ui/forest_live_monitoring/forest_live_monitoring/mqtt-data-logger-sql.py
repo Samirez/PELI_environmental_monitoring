@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO) #error logging
 ####
 options=dict()
 ##EDIT HERE ###############
-brokers=["192.168.1.51","192.168.1.186","192.168.1.206","192.168.1.185",\
+brokers=["192.168.1.51","192.168.1.186","192.168.1.206","192.168.1.108",\
          "test.mosquitto.org","broker.hivemq.com","iot.eclipse.org"]
 options["broker"]=brokers[0]
 options["port"]=1883
