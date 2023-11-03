@@ -20,4 +20,5 @@ import humidity.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', humidity.views.home_view, name='home'),
+    path('latest_readings/', humidity.views.latest_readings, name='latest_readings'),
 ]

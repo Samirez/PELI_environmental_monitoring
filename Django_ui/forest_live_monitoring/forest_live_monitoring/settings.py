@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'humidity',
 ]
 
 MIDDLEWARE = [
@@ -87,10 +88,10 @@ WSGI_APPLICATION = 'forest_live_monitoring.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db', # This is where you put the name of the db file. 
-                 # If one doesn't exist, it will be created at migration time.
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 
