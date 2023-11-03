@@ -18,5 +18,4 @@ class sensorReadings(models.Model):
 
     class Meta:
         db_table = 'sensorReadings'
-        unique_together = (('ID', 'Node_id'),)
 
