@@ -39,14 +39,15 @@ options["password"]=""
 options["topics"]=[("$SYS/#",0)]
 
 #sql
-db_file="logs.db"
-Table_name="logs"
+db_file="../db.sqlite3"
+Table_name="sensorReadings"
 table_fields={
     "id":"integer primary key autoincrement",
     "time":"int",
     "topic":"text",
     "sensor":"text",
-    "message": "text",}
+    "message": "text",
+    }
 ###
 cname=""
 sub_flag=""
