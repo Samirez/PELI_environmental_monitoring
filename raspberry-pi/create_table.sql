@@ -1,14 +1,13 @@
-CREATE TABLE IF NOT EXISTS sensors (
-    Node_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    Latitude NUMERIC(8, 6),
-    Longitude NUMERIC(9, 6)
+CREATE TABLE IF NOT EXISTS "sensors" (
+    "Node_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "Latitude" DECIMAL NOT NULL,
+    "Longitude" DECIMAL NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS sensorReadings (
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    node_id INT,
-    Temperature float NOT NULL,
-    Humidity float NOT NULL,
-    Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (node_id) REFERENCES sensors(Node_id)
+CREATE TABLE IF NOT EXISTS "sensorReadings" (
+    "ID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "Temperature" REAL NOT NULL,
+    "Humidity" REAL NOT NULL,
+    "Timestamp" DATETIME NOT NULL,
+    "Node_id_id" INTEGER NOT NULL REFERENCES "sensors" ("Node_id") DEFERRABLE INITIALLY DEFERRED
 );

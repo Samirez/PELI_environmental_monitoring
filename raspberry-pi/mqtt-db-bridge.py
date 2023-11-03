@@ -4,7 +4,7 @@ import sqlite3
 import time
 import queue
 
-db_con = sqlite3.connect("db.db")
+db_con = sqlite3.connect("../db.sqlite3")
 db = db_con.cursor()
 q = queue.Queue()
 
@@ -34,7 +34,7 @@ client.loop_start()
 try:
     while True:
       node, temp, hum = q.get()
-      db.execute("INSERT INTO sensorReadings (node_id, Temperature, Humidity) VALUES (?, ?, ?)", (node, temp, hum))
+      db.execute("INSERT INTO sensorReadings (node_id_id, Temperature, Humidity) VALUES (?, ?, ?)", (node, temp, hum))
       db_con.commit()
 except KeyboardInterrupt:
     pass

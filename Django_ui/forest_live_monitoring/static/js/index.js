@@ -7,9 +7,9 @@ function updateLatestReadings() {
             const deviceNumber = i + 1;
 
             // Update the content
-            $('#temperature${deviceNumber}').text(reading.Temperature);
-            $('#humidity${deviceNumber}').text(reading.Humidity);
-            $('#location${deviceNumber}').text(reading.Location);
+            $(`#temperature${deviceNumber}`).text(reading.Temperature);
+            $(`#humidity${deviceNumber}`).text(reading.Humidity);
+            $(`#location${deviceNumber}`).text(reading.Location);
         }
     });
 }

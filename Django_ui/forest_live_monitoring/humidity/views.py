@@ -24,7 +24,7 @@ def home_view(request):
 
 # create JSON response for the latest readings
 def latest_readings(request):
-    latest_readings = sensorReadings.objects.all().order_by('-Timestamp')[:4]
+    latest_readings = sensorReadings.objects.select_related('Node_id').order_by('-Timestamp')[:4]
 
     data = []
     for reading in latest_readings:
