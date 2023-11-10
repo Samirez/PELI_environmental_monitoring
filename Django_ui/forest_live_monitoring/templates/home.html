@@ -10,14 +10,15 @@
     <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
 </head>
 <body>
-    <div class="header">
+    <div class="header" style="width: 102%;  margin-left: -2%; margin-top: -1.25%;">
     <ul>
         <li><a class="active" href="#forest">Forest monitoring</a></li>
     </ul>
     </div>
-    <div class="container">
+    <div class="container"  style="display: flex; flex-wrap: wrap; justify-content: center; align-items: auto;
+    align-content: start; height: 100%;">
     {% for sensor, latest_reading in sensors_with_latest_readings %}
-        <div class="device-container{{ forloop.counter }}">
+        <div class="device-container{{ forloop.counter }}" style="flex: 0 0 auto; margin: 10px; background-color: #9ED7A7; padding: 5px;">
             <h3 class="device-{{ forloop.counter }}">Device name: <span id="device{{ forloop.counter }}">{{ sensor.Node_id }}</span></h3>
             <p class="humidity-{{ forloop.counter }}">Humidity: <span id="humidity{{ forloop.counter }}">{{ latest_reading.Humidity }}</span></p>
             <p class="temperature-{{ forloop.counter }}">Temperature: <span id="temperature{{ forloop.counter }}">{{ latest_reading.Temperature }}</span></p>
