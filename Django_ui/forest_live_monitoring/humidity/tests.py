@@ -1,19 +1,23 @@
 from django.test import TestCase
+from django.urls import reverse
+import humidity.views
+from django.contrib import admin
+
+
+class Admin_test(TestCase):
+    """ Tests for the application views """
+    def admin_test(self):
+        """ Test the admin view """
+        response = self.client.get(reverse('admin'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'admin')
+        self.assertTemplateUsed(response, admin.site.urls)
 
 class HumidityTest(TestCase):
     """ Tests for the application views """
-    def test_humidity(self):
+    def humidity_test(self):
         """ Test the humidity view """
-        url = '/humidity/'
-        response = self.client.get(url)
+        response = self.client.get(reverse('humidity'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Humidity')
-        self.assertTemplateUsed(response, 'humidity/humidity.html')
-
-    def test_humidity_data(self):
-        """ Test the humidity data view """
-        url = '/humidity/data/'
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Humidity')
-        self.assertTemplateUsed(response, 'humidity/humidity_data.html')
+        self.assertContains(response, 'latest_readings')
+        self.assertTemplateUsed(response, 'home.html')
