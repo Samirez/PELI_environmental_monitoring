@@ -3,8 +3,9 @@ import paho.mqtt.client as mqtt
 import sqlite3
 import time
 import queue
+from datetime import datetime
 
-db_con = sqlite3.connect("../db.sqlite3")
+db_con = sqlite3.connect("../Django_ui/forest_live_monitoring/db.sqlite3")
 db = db_con.cursor()
 q = queue.Queue()
 
@@ -34,7 +35,7 @@ client.loop_start()
 try:
     while True:
       node, temp, hum = q.get()
-      db.execute("INSERT INTO sensorReadings (node_id_id, Temperature, Humidity) VALUES (?, ?, ?)", (node, temp, hum))
+      db.execute("INSERT INTO sensorReadings (Node_id_id, Temperature, Humidity, Timestamp) VALUES (?, ?, ?, ?)", (node, temp, hum, datetime.now()))
       db_con.commit()
 except KeyboardInterrupt:
     pass
