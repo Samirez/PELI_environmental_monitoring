@@ -32,43 +32,63 @@ document.addEventListener('visibilitychange', function() {
 });
 
 
-function graph_plot() {
-    $.get('all_readings/', function(data) {
-        const sensorReadings = data.sensorReadings;
+// Create the chart
+const graph_plot = () => {
+    $.get('/all_readings/', function(data) {
+        const allReadings = data.all_readings;
 
-        // Loop through each sensor reading
-        sensorReadings.forEach(reading => {
-            // Prepare data for the chart
-            const labels = reading.values.map((value, index) => `Reading ${index + 1}`);
-            const data = reading.values;
+        allReadings.forEach(sensorReading => {
+            const sensor = sensorReading.Sensor;
+            const readings = sensorReading.Readings;
 
-            // Create a canvas element for each sensor
-            const canvas = document.createElement('canvas');
-            canvas.id = `sensorGraph-${reading.sensor}`;
-            document.body.appendChild(canvas);
+            if (readings.length > 0) {
+                const latestReading = readings[0];
 
-            // Create the chart
-            const ctx = canvas.getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: reading.sensor,
-                        data: data,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
+                const labels = ['Latest Reading'];
+                const temperatureData = [latestReading.Temperature];
+                const humidityData = [latestReading.Humidity];
+
+                const canvas = document.createElement('canvas');
+                canvas.id = `sensorGraph-${sensor.Node_id}`;
+                document.getElementById('graphs-container').appendChild(canvas);
+
+                const ctx = canvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: `Sensor ID: ${sensor.Node_id}`,
+                                data: temperatureData,
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Humidity',
+                                data: humidityData,
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
         });
     });
-}
+};
+
+$(document).ready(function() {
+    setTimeout(function() {
+        graph_plot();
+    }, 1000);
+});

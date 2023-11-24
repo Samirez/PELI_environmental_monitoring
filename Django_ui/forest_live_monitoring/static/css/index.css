@@ -80,9 +80,9 @@ ul {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: auto;
-      align-content: start;
-      height: 100%;
+      align-items: center;
+      align-content: center;
+      height: auto;
   }
     /*.container:after {
         display: block;
