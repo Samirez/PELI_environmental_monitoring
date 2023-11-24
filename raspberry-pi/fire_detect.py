@@ -21,7 +21,7 @@ def get_temp_humidity():
    return t,h
 
 def fire_detected(node_id):
-    return("Suspicion of fire detected)",node_id)
+    return("Suspicion of fire detected",node_id)
 
 
 #V1
@@ -35,15 +35,15 @@ def fire_detectV1(node):
                     i = 1
                     Temp[0],RH[0] = currentTemp, currentRH
                     while(i<10):
-                        Temp[i],RH[i] = getTemp_RH()
+                        Temp[i],RH[i] = get_temp_humidity()
                         time.sleep(10)
                         i+=1
                     if(np.mean(Temp[5:]) >= np.mean(Temp[0:5]) and np.mean(RH[5:])>= np.mean[0:5]):
-                        fire_detected()
+                        fire_detected(node)
                     else:
                         i=0
             else:
-                print("Aucune détection")
+                print("Nothing detected")
         
 #V2
 def fire_detectv2(node):
