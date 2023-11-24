@@ -11,9 +11,10 @@
 </head>
 <body>
     <div class="header" style="width: 102%;  margin-left: -2%; margin-top: -2.3%;">
-    <ul>
-        <li><a class="active" href="#forest">Forest monitoring</a></li>
-    </ul>
+        <ul>
+            <li><a class="active" href="{% url 'home' %}">Forest monitoring</a></li>
+            <li><a href="{% url 'graphs' %}">Graphs</a></li>
+        </ul>
     </div>
     <div class="container"  style="display: flex; flex-wrap: wrap; justify-content: center; align-items: auto;
     align-content: start; height: 100%;">

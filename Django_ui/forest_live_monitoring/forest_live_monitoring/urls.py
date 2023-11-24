@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', humidity.views.home_view, name='home'),
     path('latest_readings/', humidity.views.latest_readings, name='latest_readings'),
+    path('graph/', humidity.views.graph_view, name='graphs'),
+    path('all_readings/', humidity.views.all_readings, name='all_readings'),
 ]
