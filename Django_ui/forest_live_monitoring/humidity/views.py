@@ -24,7 +24,7 @@ def home_view(request):
 
 # create JSON response for the latest readings
 def latest_readings(request):
-    latest_readings = sensorReadings.objects.select_related('Node_id_id').order_by('-Timestamp')[:4]
+    latest_readings = sensorReadings.objects.select_related('Node_id').order_by('-Timestamp')[:4]
 
     data = []
     for reading in latest_readings:
@@ -35,4 +35,9 @@ def latest_readings(request):
         })
 
     return JsonResponse({'latest_readings': data})
-     
+
+
+def graph_view(request):
+    
+    
+    return render(request, 'graph.html')     
