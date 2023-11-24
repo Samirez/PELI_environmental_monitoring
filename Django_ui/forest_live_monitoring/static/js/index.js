@@ -41,12 +41,12 @@ const graph_plot = () => {
             const sensor = sensorReading.Sensor;
             const readings = sensorReading.Readings;
 
-            if (readings.length > 0) {
-                const latestReading = readings[0];
+            console.log(`Sensor ID: ${sensor.Node_id}`, readings); // Log readings to the console
 
-                const labels = ['Latest Reading'];
-                const temperatureData = [latestReading.Temperature];
-                const humidityData = [latestReading.Humidity];
+            if (readings.length > 0) {
+                const labels = readings.map((reading, index) => ` ${index + 1}`);
+                const temperatureData = readings.map(reading => reading.Temperature);
+                const humidityData = readings.map(reading => reading.Humidity);
 
                 const canvas = document.createElement('canvas');
                 canvas.id = `sensorGraph-${sensor.Node_id}`;
@@ -59,14 +59,14 @@ const graph_plot = () => {
                         labels: labels,
                         datasets: [
                             {
-                                label: `Sensor ID: ${sensor.Node_id}`,
+                                label: `Sensor ID: ${sensor.Node_id} - Temperature`,
                                 data: temperatureData,
                                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                                 borderColor: 'rgba(255, 99, 132, 1)',
                                 borderWidth: 1
                             },
                             {
-                                label: 'Humidity',
+                                label: `Sensor ID: ${sensor.Node_id} - Humidity`,
                                 data: humidityData,
                                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -86,6 +86,12 @@ const graph_plot = () => {
         });
     });
 };
+
+$(document).ready(function() {
+    setTimeout(function() {
+        graph_plot();
+    }, 1000);
+});
 
 $(document).ready(function() {
     setTimeout(function() {

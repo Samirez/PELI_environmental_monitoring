@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.db.models import Max
 from django.core.exceptions import ObjectDoesNotExist
 
+
 def home_view(request):
     # Get the latest sensor reading
     sensors_with_latest_readings = []
@@ -54,6 +55,7 @@ def graph_view(request):
     }
     return render(request, 'graph.html', context)
 
+
 def all_readings(request):
     all_sensors = sensors.objects.all()
     all_sensorReadings = []
@@ -62,16 +64,12 @@ def all_readings(request):
         sensor_readings = sensorReadings.objects.filter(Node_id=sensor)
         readings = []
 
-        # Use a try-except block to handle the case where there is no latest reading
-        try:
-            latest_reading = sensor_readings.latest('Timestamp')
+        for reading in sensor_readings:
             readings.append({
-                'Temperature': latest_reading.Temperature,
-                'Humidity': latest_reading.Humidity,
-                'Location': f'{latest_reading.Node_id.Latitude}, {latest_reading.Node_id.Longitude}',
+                'Temperature': reading.Temperature,
+                'Humidity': reading.Humidity,
+                'Location': f'{reading.Node_id.Latitude}, {reading.Node_id.Longitude}',
             })
-        except ObjectDoesNotExist:
-            pass
 
         all_sensorReadings.append({
             'Sensor': {
