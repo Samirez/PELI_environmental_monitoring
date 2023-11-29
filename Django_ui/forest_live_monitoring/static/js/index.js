@@ -83,10 +83,10 @@ $(document).ready(function() {
     // Periodically update readings every 1 second
     let intervalId = setInterval(updateLatestReadings, 1000);
 
-    // Periodically update readings every 10 seconds
+    // Periodically update graph every 10 seconds
     let graphIntervalId = setInterval(graph_plot, 10000);
 
-    // Stop updating when the page is not visible
+    // Stop updating when page is not visible
     document.addEventListener('visibilitychange', function() {
         if (document.visibilityState === 'hidden') {
             clearInterval(intervalId);
